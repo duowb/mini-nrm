@@ -8,7 +8,7 @@ const NPM = process.platform === 'win32' ? 'npm.cmd' : 'npm'
 let registriesAll = Object.assign({}, registries, customRegistries)
 
 function spawnSync(params: string[]) {
-  return cp.spawnSync(NPM, params, { encoding: 'utf8' }).stdout
+  return cp.spawnSync(NPM, params, { encoding: 'utf8', shell: true }).stdout
 }
 
 let current: string
