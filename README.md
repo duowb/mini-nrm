@@ -2,9 +2,9 @@
 <p align="center">Mini npm registry manager</p>
 
 <p align="center">
-    <a href="https://www.npmjs.com/package/mini-nrm"><img src="https://img.shields.io/npm/v/mini-nrm?logo=npm" alt="Version"></a>
-    <a href="https://github.com/Lete114/visitor-badge"><img src="https://visitor-badge.imlete.cn/?id=github.CreateWheel.mini-nrm" alt="visitor_badge"></a>
-    <a href="https://github.com/CreateWheel/mini-nrm/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/mini-nrm?color=FF5531" alt="MIT License"></a>
+    <a href="https://www.npmjs.com/package/@fixpkg/mini-nrm"><img src="https://img.shields.io/npm/v/%40fixpkg%2Fmini-nrm?logo=npm" alt="Version"></a>
+    <a href="https://github.com/Lete114/visitor-badge"><img src="https://visitor-badge.imlete.cn/?id=github.duowb.mini-nrm" alt="visitor_badge"></a>
+    <a href="https://github.com/duowb/mini-nrm/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/%40fixpkg%2Fmini-nrm?color=FF5531" alt="MIT License"></a>
 </p>
 
 # mini-nrm
@@ -23,13 +23,13 @@ Super lightweight npm registry manager
 ## Install
 
 ```bash
-npm install -g mini-nrm
+npm install -g @fixpkg/mini-nrm
 ```
 
 Because it is very slim, you can use `npx` to manage the registry image directly without installing it
 
 ```bash
-npx mini-nrm --help
+npx @fixpkg/mini-nrm --help
 ```
 
 ## Usage
@@ -37,6 +37,7 @@ npx mini-nrm --help
 > This command does not modify the registry, it just uses the specified registry to install the dependencies
 >
 > It uses the `taobao` registry to install `output-line` `get-user-ip ` `body-data` `simple-unique`
+
 ```diff
 -npm install output-line get-user-ip body-data simple-unique -S
 +mnrm use taobao output-line get-user-ip body-data simple-unique -S
@@ -83,7 +84,7 @@ npx mini-nrm --help
 ## JavaScript API
 
 ```js
-import mnrm from 'mini-nrm'
+import mnrm from '@fixpkg/mini-nrm'
 
 console.log(mnrm.list())
 // output

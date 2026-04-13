@@ -1,22 +1,17 @@
 {
-  "name": "mini-nrm",
-  "version": "1.1.0",
+  "name": "@fixpkg/mini-nrm",
+  "type": "module",
+  "version": "1.0.0",
   "description": "Mini npm registry manager",
-  "main": "dist/src/main.js",
-  "scripts": {
-    "dev": "ts-node src/cli.ts",
-    "build": "tsc",
-    "test": "mocha",
-    "lint": "eslint src && prettier --check src",
-    "lint:fix": "eslint --fix src && prettier --check --write src"
-  },
-  "bin": {
-    "mnrm": "dist/src/cli.js",
-    "mimi-nrm": "dist/src/cli.js"
-  },
+  "author": "duowb <duowenbo@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/duowb/mini-nrm#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CreateWheel/mini-nrm.git"
+    "url": "git+https://github.com/duowb/mini-nrm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/duowb/mini-nrm/issues"
   },
   "keywords": [
     "npm",
@@ -25,24 +20,43 @@
     "manager",
     "mirror"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.cts",
+      "require": "./dist/main.cjs"
+    }
+  },
+  "main": "dist/main.cjs",
+  "types": "dist/main.d.cts",
+  "bin": {
+    "mnrm": "dist/cli.cjs",
+    "mimi-nrm": "dist/cli.cjs"
+  },
   "files": [
     "dist"
   ],
-  "author": "Lete <me@imlete.cn> (https://www.imlete.cn)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/CreateWheel/mini-nrm/issues"
+  "engines": {
+    "node": ">=20.19.0"
   },
-  "homepage": "https://github.com/CreateWheel/mini-nrm#readme",
+  "scripts": {
+    "dev": "tsdown --watch",
+    "build": "tsdown",
+    "test": "vitest",
+    "lint": "eslint",
+    "release": "bumpp",
+    "typecheck": "tsc --noEmit"
+  },
   "devDependencies": {
-    "@types/mocha": "^10.0.0",
-    "@types/node": "^18.11.4",
-    "@typescript-eslint/eslint-plugin": "^5.40.1",
-    "@typescript-eslint/parser": "^5.40.1",
-    "eslint": "^8.26.0",
-    "mocha": "^10.1.0",
-    "prettier": "^2.7.1",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.8.4"
-  }
+    "@sxzz/eslint-config": "^7.8.4",
+    "@sxzz/prettier-config": "^2.3.1",
+    "@types/node": "^25.6.0",
+    "bumpp": "^11.0.1",
+    "eslint": "^10.2.0",
+    "jiti": "^2.6.1",
+    "prettier": "^3.6.2",
+    "tsdown": "^0.21.7",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.4"
+  },
+  "prettier": "@sxzz/prettier-config"
 }

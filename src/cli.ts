@@ -1,48 +1,44 @@
 #!/usr/bin/env node
+import { argv } from 'node:process'
+import packageJson from '../package.json'
+import { add, help, list, remove, test, use } from './main'
 
-import { list, use, add, test, remove, help } from './main'
-
-const [cmd, ...argv] = process.argv.slice(2)
+const [cmd, ...args] = argv.slice(2)
 
 switch (cmd) {
   case 'ls':
   case 'list':
-    // eslint-disable-next-line no-console
     console.log(list())
     break
   case 'use':
-    // eslint-disable-next-line no-console
-    console.log(use(argv.shift() || '', argv))
+    console.log(use(args.shift() || '', args))
     break
   case 'add':
-    // eslint-disable-next-line no-console
-    console.log(add(argv[0], argv[1], argv[2]))
+    console.log(add(args[0], args[1], args[2]))
     break
   case 'test': {
-    const info = argv[0]
-    // eslint-disable-next-line no-console
+    const info = args[0]
     const log = ['-i', '--info'].includes(info) ? console.table : console.log
-    test(info).then(log)
+    test(info, log)
     break
   }
   case 'del':
   case 'delete':
   case 'rm':
   case 'remove':
-    // eslint-disable-next-line no-console
-    console.log(remove(...argv))
+    console.log(remove(...args))
     break
   case '-v':
   case '--version':
-    // eslint-disable-next-line no-console
-    console.log('v1.0.0')
+    console.log(`v${packageJson.version}`)
     break
   case 'h':
   case '-h':
   case 'help':
   case '--help':
-  case undefined:
-  default:
-    // eslint-disable-next-line no-console
     console.log(help())
+    break
+  default:
+    console.log(help())
+    break
 }
